@@ -1,0 +1,27 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    maintainer: 'Aly Ibrahim <aly@redhat.com>'
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/AlyIbrahim/hello-node.git'
+  name: hello-node
+  labels:
+    app: hello-node
+    app.kubernetes.io/component: hello-node
+    app.kubernetes.io/instance: hello-node
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: hello-node
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: '12'
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 3000
+  selector:
+    app: hello-node
+    deploymentconfig: hello-node
+  type: ClusterIP
+  sessionAffinity: None
