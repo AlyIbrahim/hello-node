@@ -7,7 +7,6 @@ metadata:
     app.openshift.io/vcs-uri: 'https://github.com/AlyIbrahim/hello-node.git'
     alpha.image.policy.openshift.io/resolve-names: '*'
   name: hello-node
-  namespace: sysco
   labels:
     app: hello-node
     app.kubernetes.io/component: hello-node
